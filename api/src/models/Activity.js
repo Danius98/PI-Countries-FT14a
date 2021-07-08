@@ -34,9 +34,9 @@ module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define("activity",
       {
-        id: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, primaryKey: true},
-        nombre: { type: DataTypes.STRING, allowNull: true },
-        Dificultad: { type: DataTypes.ENUM("1", "2", "3", "4", "5"), allowNull: true },
+        //id: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, primaryKey: true},
+        nombre: { type: DataTypes.STRING, allowNull: false },
+        Dificultad: { type: DataTypes.ENUM("1", "2", "3", "4", "5"), allowNull: true},
         Duración: { type: DataTypes.STRING, allowNull: true },
         Temporada: { type: DataTypes.ENUM("Verano", "Otoño", "Invierno", "Primavera"), allowNull: true}
       },
