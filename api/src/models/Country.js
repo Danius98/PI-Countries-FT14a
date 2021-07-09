@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
       capital: { type: DataTypes.STRING , allowNull: false},
       continente: { type: DataTypes.STRING, allowNull: false },
       subcontinente: { type: DataTypes.STRING, allowNull: true},
-      coordenadas: { type: DataTypes.INTEGER, allowNull: true},
+      superficie: { type: DataTypes.INTEGER, allowNull: true},
       poblacion: { type: DataTypes.INTEGER, allowNull: true}
     },
     { timestamps: false }
