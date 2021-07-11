@@ -1,5 +1,6 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { useHistory } from "react-router";
 import Button from "./Button";
 
 function Landing() {
@@ -7,7 +8,7 @@ function Landing() {
 return (
     <main>
       <Button>
-             <Link to="/Country">Home</Link>
+             <Link to="/Country"><h1>Bienvenido, clickea para continuar</h1></Link>
       </Button>
     </main>
 )
