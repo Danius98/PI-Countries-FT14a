@@ -1,28 +1,34 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import { getCountry } from '../actions/index.js';
-import { useDispatch } from 'react-redux';
+import { getCountry } from "../actions/index.js";
+import { UseEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import Card from "./Card"
 
-export function Home() {
+
+export default function Home() {
+    const countries = useSelector((state) => state.countriesLoaded
+    )
+    console.log(countries)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getCountry());
-    }, [dispatch]);
-const Country = ({ bandera, nombre, continente, subcontinente, codigo, Activity}) => {
+      }, [dispatch])
     return (
         <div>
-            <Link to={`/Country/${codigo}`}>
-              <img src={bandera} alt="No hay bandera"></img>
-            <h2>{nombre}</h2>
-              <h3>{continente}</h3>
-              <h4>{subcontinente}</h4>
-              <h4>{Activity}</h4>
-              </Link>
+            <ul>
+        {countries.map((e) => (
+          <Card
+            bandera={e.bandera}
+            nombre={e.nombre}
+            continente={e.continente}
+            codigo={e.codigo}
+          />
+        ))}
+        </ul>
         </div>
     )
     }
-}
 
-export default Home;
 
+//export default Home;

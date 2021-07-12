@@ -8,7 +8,7 @@ router.post('/', async function new_Activity(req, res) {
         where: {
             Nombre: Nombre,
         },
-    });
+    }); 
     if(!Val_Actividad) {
         const new_Actividad = await Activity.create({
             Nombre: Nombre,

@@ -1,19 +1,24 @@
+import axios from "axios"
+export const GET_COUNTRIES = "GET_COUNTRIES"
+
 export function getCountry() {
-    return function(dispatch) {
-        return axios("http://localhost:3001/Country")
-        .then(response => response.json())
-        .then(json => {
-            dispatch({type: "GET_COUNTRIES", payload: json});
-        });
-    };
+    return async function(dispatch) {
+        try {
+        const json = await axios.get("http://localhost:3001/Country");
+        return dispatch({ type: "GET_COUNTRIES", payload: json.data})
+         } catch(error) {
+            console.log(error)
+        };
+    }
 }
 
 export function getCountries(nombre) {
-    return function(dispatch) {
-        return axios("http://localhost:3001/Country?=" + nombre)
-        .then(response => response.json())
-        .then(json => {
-            dispatch({type: "GET_COUNTRIES", payload: json});
-        });
-    };
+    return async function(dispatch) {
+        try {
+        const json = await axios.get("http://localhost:3001/Country?=" + nombre);
+        return dispatch({ type: "GET_COUNTRIES", payload: json.data})
+         } catch(error) {
+            console.log(error)
+        };
+    }
 }

@@ -3,14 +3,11 @@ const { Sequelize, Op } = require('sequelize');
 const { Country, Activity } = require('../db');
 const router = Router();
 
-//router.get('/', getAll)
-//router.get('/:idPais', CountryId)
-
 router.get('/', async function getAll(req, res) {
     const { nombre } = req.query; 
     try {
         if(!nombre) {
-            const All_Country = await Country.findAll({include: Activity});
+            const All_Country = await Country.findAll({include: Activity, limit:10, offset:0});
             res.json(All_Country);
         } else {
             const CountryQuery = await Country.findAll({
