@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Link } from 'react-router-dom';
-import Countries from "./Countries/Countries"
 import { getCountry } from "../actions/index.js";
 import { useDispatch } from "react-redux";
+import Countries from "./Countries/Countries"
+import NavBar from "./NavBar"
 
 
 export default function Home() {
@@ -11,8 +12,11 @@ export default function Home() {
         dispatch(getCountry());
       }, [dispatch])
     return (
+      <div>
+        <NavBar/>
         <div>
           <Countries/>
+          </div>
         </div>
     )
 }
