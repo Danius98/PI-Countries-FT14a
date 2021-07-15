@@ -1,4 +1,4 @@
-export default function MiniCountry(props) {
+export default function ActivityCountry(props) {
     const { nombre, bandera, codigo } = props
     return (
         <div>

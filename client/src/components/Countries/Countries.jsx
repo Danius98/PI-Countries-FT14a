@@ -32,10 +32,10 @@ const Filtred_Country = countries.slice(currentPage, currentPage + 10);
 
 return (
     <div>
-        <button onClick={first_Page}> {"<="}</button>
+        <button onClick={first_Page}> {"<<"}</button>
         <button onClick={prev_Page}> {"<"}</button>
         <button onClick={next_Page}> {">"}</button>
-        <button onClick={last_Page}> {"=>"}</button>
+        <button onClick={last_Page}> {">>"}</button>
         <div>
         {Filtred_Country.map((e) => (
         <CountryCard

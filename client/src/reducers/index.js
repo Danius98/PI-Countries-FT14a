@@ -41,7 +41,7 @@ const initialState = {
     if (action.type === GET_COUNTRY_ID) {
       return {
         ...state,
-        countriesInfo: action.payload
+        countryInfo: action.payload
       };
     }
     if (action.type === SHOW_ACTIVITY) {
@@ -55,13 +55,13 @@ const initialState = {
     if (action.type === NAME_ORDER_A) {
       return {
         ...state,
-        countriesLoaded: state.countriesLoaded.slice().sort(Name_Order).reverse()
+        countriesLoaded: state.countriesLoaded.slice().sort(Name_Order)
       }
     }
     if (action.type === NAME_ORDER_Z) {
       return {
         ...state,
-        countriesLoaded: state.countriesLoaded.slice().sort(Name_Order)
+        countriesLoaded: state.countriesLoaded.slice().sort(Name_Order).reverse()
       }
     }
     if (action.type === CONTINENT) {
@@ -73,13 +73,13 @@ const initialState = {
     if (action.type === POP_ORDER_MAX) {
       return {
         ...state,
-        countriesLoaded: state.countriesLoaded.slice().sort(Pop_Order).reverse()
+        countriesLoaded: state.countriesLoaded.slice().sort(Pop_Order)
       }
     }
     if (action.type === POP_ORDER_MIN) {
       return {
         ...state,
-        countriesLoaded: state.countriesLoaded.slice().sort(Pop_Order)
+        countriesLoaded: state.countriesLoaded.slice().sort(Pop_Order).reverse()
       }
     }
   return state;

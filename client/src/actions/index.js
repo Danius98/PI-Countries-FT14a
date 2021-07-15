@@ -34,7 +34,7 @@ export function getCountriesName(nombre) {
 export function getCountryID(codigo) {
     return async function(dispatch) {
     try {
-        const json = await axios.get("http://localhost:3001/Country/" + codigo);
+        const json = await axios.get(`http://localhost:3001/Country/${codigo}`);
         return dispatch({ type: "GET_COUNTRY_ID", payload: json.data})
     } catch(error) {
         console.log("No se encontró el país con ese ID")
@@ -60,17 +60,15 @@ export function show_Activity(payload) {
     };
 };
 
-export function Name_OrderA(payload) {
+export function Name_OrderA() {
     return {
         type: NAME_ORDER_A,
-        payload
     }
 }
 
-export function Name_OrderZ(payload) {
+export function Name_OrderZ() {
     return {
         type: NAME_ORDER_Z,
-        payload
     }
 }
 
@@ -81,16 +79,14 @@ export function Continent(payload) {
     }
 }
 
-export function Pop_Order_Max(payload) {
+export function Pop_Order_Max() {
     return {
     type: POP_ORDER_MAX,
-    payload
     }
 }
 
-export function Pop_Order_Min(payload) {
+export function Pop_Order_Min() {
     return {
         type: POP_ORDER_MIN,
-        payload
     }
 }
