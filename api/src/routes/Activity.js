@@ -2,8 +2,8 @@ const { Router } = require('express');
 const { Country, Activity } = require('../db');
 const router = Router();
 
-router.post('/', async function new_Activity(req, res) {
-    const { Nombre, Dificultad, Duracion, Temporada, CountryID } = req.body;
+router.post('/', async function newActivity(req, res) {
+    const { Nombre, Dificultad, Duracion, Temporada, countryCodigo } = req.body;
     const Val_Actividad = await Activity.findOne({
         where: {
             Nombre: Nombre,
@@ -18,7 +18,7 @@ router.post('/', async function new_Activity(req, res) {
         });
         const PaisID = await Country.findAll({
             where: {
-                codigo: CountryID,
+                codigo: countryCodigo,
             },
         });
         const show_Actividad = await new_Actividad.addCountry(PaisID);
@@ -26,7 +26,7 @@ router.post('/', async function new_Activity(req, res) {
     }
     const PaisID = await Country.findAll({
         where: {
-            codigo: CountryID,
+            codigo: countryCodigo,
         },
     });
     const show_Actividad = await Val_Actividad.addCountry(PaisID);
